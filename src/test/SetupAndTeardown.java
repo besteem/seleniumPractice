@@ -2,7 +2,7 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 
-public class setupAndTeardown {
+public class SetupAndTeardown {
 	WebDriver driver;
 	
 	public setupAndTeardown(WebDriver driver) {
