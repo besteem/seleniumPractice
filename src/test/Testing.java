@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import pages.authenticatorPage;
-import pages.homepage;
-import pages.myAccountPage;
-import pages.registrationPage;
+import pages.AuthenticatorPage;
+import pages.Homepage;
+import pages.MyAccountPage;
+import pages.RegistrationPage;
 
 public class testing {
 	static WebDriver driver = new ChromeDriver();
@@ -33,11 +33,11 @@ public class testing {
 	static String mobileNum = "09160279471";
 	static String alias = "addressee";
 	
-	static setupAndTeardown objSetupAndTeardown;
-	static authenticatorPage objAuthenticator;
-	static homepage objHomepage;
-	static myAccountPage objMyAccount;
-	static registrationPage objRegister;
+	static SetupAndTeardown objSetupAndTeardown;
+	static AuthenticatorPage objAuthenticator;
+	static Homepage objHomepage;
+	static MyAccountPage objMyAccount;
+	static RegistrationPage objRegister;
 	
 	
 	public static void main(String[] args) {
@@ -55,13 +55,13 @@ public class testing {
 	}
 	
 	public static void setup() {
-		objSetupAndTeardown = new setupAndTeardown(driver);
+		objSetupAndTeardown = new SetupAndTeardown(driver);
 		objSetupAndTeardown.testSetup(URL);
 	}
 	
 	public static void goToAuthenticatorPage() {
-		objHomepage = new homepage(driver);
-		objAuthenticator = new authenticatorPage(driver);
+		objHomepage = new Homepage(driver);
+		objAuthenticator = new AuthenticatorPage(driver);
 		//verify page title
 		String homepage = objHomepage.getHomepageTitle();
 		System.out.println("homepage title: " + homepage);
@@ -75,12 +75,12 @@ public class testing {
 	}
 	
 	public static void loginAsExistingUser() {
-		objAuthenticator = new authenticatorPage(driver);
+		objAuthenticator = new AuthenticatorPage(driver);
 		objAuthenticator.loginAsExistingUser(userEmail, userPassword);
 	}
 	
 	public static void verifySuccessfulLoginOrRegister() {
-		objMyAccount = new myAccountPage(driver);
+		objMyAccount = new MyAccountPage(driver);
 		String myAccountPage = objMyAccount.getMyAccountPageTitle();
 		System.out.println("page title: " + myAccountPage);
 		assertTrue("incorrect page title", myAccountPage.equals(myAccountTitle));
@@ -90,8 +90,8 @@ public class testing {
 	}
 	
 	public static void registerNewUser() {
-		objRegister = new registrationPage(driver);
-		objAuthenticator = new authenticatorPage(driver);
+		objRegister = new RegistrationPage(driver);
+		objAuthenticator = new AuthenticatorPage(driver);
 		objAuthenticator.signupAsNewUser(userEmail);
 		String registerPage = objRegister.getRegistrationHeader();
 		System.out.println("page title: " + registerPage);
@@ -99,7 +99,7 @@ public class testing {
 	}
 	
 	public static void provideValidInformation() {
-		objRegister = new registrationPage(driver);
+		objRegister = new RegistrationPage(driver);
 		objRegister.inputPersonalInfo(selectedGender, firstName, lastName, userPassword, month + " ", 3, year);
 		String emailAdd = objRegister.verifyEmailGenerated();
 		System.out.println("Generated email: " + userEmail);
@@ -118,16 +118,16 @@ public class testing {
 	}
 	
 	public static void clickRegister() {
-		objRegister = new registrationPage(driver);
+		objRegister = new RegistrationPage(driver);
 		objRegister.clickRegister();
 	}
 	
 	public static void logout() {
-		objMyAccount = new myAccountPage(driver);
+		objMyAccount = new MyAccountPage(driver);
 		objMyAccount.clickSignOut();
 	}
 	
-	public static void teardown() {
+	public static void Teardown() {
 		objSetupAndTeardown = new setupAndTeardown(driver);
 		objSetupAndTeardown.testTeardown();
 	}
