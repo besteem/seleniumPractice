@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class authenticatorPage {
+public class AuthenticatorPage {
 	WebDriver driver;
 	By newEmailTextfield = By.xpath("//*[contains(@id, 'email_create')]");
 	By createAccountBtn = By.xpath("//*[contains(@id, 'SubmitCreate')]");
