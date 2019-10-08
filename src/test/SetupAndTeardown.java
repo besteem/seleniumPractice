@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class SetupAndTeardown {
 	WebDriver driver;
 	
-	public setupAndTeardown(WebDriver driver) {
+	public SetupAndTeardown(WebDriver driver) {
 		this.driver = driver;
 	}
 
