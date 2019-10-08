@@ -57,10 +57,10 @@ public class RegistrationPage {
 	
 	public void selectSubscription(boolean newsletter, boolean offer) {
 		if(newsletter = true) {
-			driver.findElement(subscribeNewsletter).click();
+			driver.findElement(newsletterSubscribe).click();
 		}
 		else if(offer = true) {
-			driver.findElement(subscribeOffer).click();
+			driver.findElement(offerSubscribe).click();
 		}
 	}
 	
