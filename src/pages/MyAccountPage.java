@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class myAccountPage {
+public class MyAccountPage {
 	WebDriver driver;
 	By userInfo = By.xpath("//*[contains(@class, 'nav')]//*[contains(@class, 'account')]");
 	By sigOutBtn = By.xpath("//*[contains(@class, 'logout')]");
