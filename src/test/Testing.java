@@ -11,14 +11,14 @@ import pages.Homepage;
 import pages.MyAccountPage;
 import pages.RegistrationPage;
 
-public class testing {
+public class LoginAndRegister {
 	static WebDriver driver = new ChromeDriver();
 	static String URL = "http://automationpractice.com/index.php";
 	static String homepageTitle = "My Store";
 	static String authenticationTitle = "Login - My Store";
 	static String myAccountTitle = "My account - My Store";
 	static String registrationHeaderText = "create an account";
-	static String userEmail = "besteem-044@gmail.com";
+	static String userEmail = "besteem-045@gmail.com";
 	static String userPassword = "rockstar!04";
 	static String firstName = "Kristine";
 	static String lastName = "Matriarch";
@@ -41,7 +41,7 @@ public class testing {
 	
 	
 	public static void main(String[] args) {
-		setup();
+		openBrowser();
 		goToAuthenticatorPage();
 		registerNewUser();
 		provideValidInformation();
@@ -50,11 +50,11 @@ public class testing {
 		logout();
 		loginAsExistingUser();
 		verifySuccessfulLoginOrRegister();
-		teardown();
+		closeBrowser();
 		
 	}
 	
-	public static void setup() {
+	public static void openBrowser() {
 		objSetupAndTeardown = new SetupAndTeardown(driver);
 		objSetupAndTeardown.testSetup(URL);
 	}
@@ -104,15 +104,7 @@ public class testing {
 		String emailAdd = objRegister.verifyEmailGenerated();
 		System.out.println("Generated email: " + userEmail);
 		assertTrue("incorrect email", emailAdd.equals(userEmail));
-		objRegister.subscribe();
-		//verify first name is populated in Shipping info
-		String fName = objRegister.firstnameIsPppulated();
-		System.out.println("first name: " + fName);
-		//assertTrue("incorrect first name", fName.equals(firstName));
-		//verify last name is populated in SHipping info
-		String lName = objRegister.lastNameIsPopulated();
-		System.out.println("last name: " + lName);
-		//assertTrue("incorrect last name", lName.equals(lastName));
+		objRegister.selectSubscription(true, true);
 		//add Shipping info
 		objRegister.inputShippingAddress(address1, city, state, zip, country, mobileNum, alias);
 	}
@@ -127,8 +119,8 @@ public class testing {
 		objMyAccount.clickSignOut();
 	}
 	
-	public static void Teardown() {
-		objSetupAndTeardown = new setupAndTeardown(driver);
+	public static void closeBrowser() {
+		objSetupAndTeardown = new SetupAndTeardown(driver);
 		objSetupAndTeardown.testTeardown();
 	}
 	
