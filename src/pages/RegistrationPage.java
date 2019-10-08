@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class registrationPage {
+public class RegistrationPage {
 	WebDriver driver;
 	By headerText = By.xpath("//*[contains(@class, 'page-subheading')]");
 	By firstNameTextfield = By.xpath("//*[contains(@id, 'customer_firstname')]");
