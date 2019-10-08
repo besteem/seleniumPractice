@@ -11,7 +11,7 @@ public class AuthenticatorPage {
 	By existingUserPasswordTextfield = By.xpath("//*[contains(@id, 'passwd')]");
 	By loginBtn = By.xpath("//*[contains(@id, 'SubmitLogin')]");
 	
-	public authenticatorPage(WebDriver driver) {
+	public AuthenticatorPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
