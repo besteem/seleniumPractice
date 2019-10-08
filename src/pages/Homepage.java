@@ -8,7 +8,7 @@ public class Homepage {
 	By signInBtn = By.xpath("//*[contains(@class, 'login')]");
 	
 	
-	public homepage(WebDriver driver) {
+	public Homepage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
