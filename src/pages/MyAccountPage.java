@@ -8,7 +8,7 @@ public class MyAccountPage {
 	By userInfo = By.xpath("//*[contains(@class, 'nav')]//*[contains(@class, 'account')]");
 	By sigOutBtn = By.xpath("//*[contains(@class, 'logout')]");
 	
-	public myAccountPage(WebDriver driver) {
+	public MyAccountPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
