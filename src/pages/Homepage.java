@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class homepage {
+public class Homepage {
 	WebDriver driver;
 	By signInBtn = By.xpath("//*[contains(@class, 'login')]");
 	
