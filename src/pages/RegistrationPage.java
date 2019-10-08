@@ -29,7 +29,7 @@ public class RegistrationPage {
 	By alias = By.id("alias");
 	By registerBtn = By.id("submitAccount");
 	
-	public registrationPage(WebDriver driver) {
+	public RegistrationPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
@@ -55,16 +55,13 @@ public class RegistrationPage {
 		return driver.findElement(emailTextfiled).getAttribute("value");
 	}
 	
-	public void subscribe() {
-		driver.findElement(newsletterSubscribe).click();
-	}
-	
-	public String firstnameIsPppulated() {
-		return driver.findElement(populatedFirstName).getText();
-	}
-	
-	public String lastNameIsPopulated() {
-		return driver.findElement(populatedLastName).getText();
+	public void selectSubscription(boolean newsletter, boolean offer) {
+		if(newsletter = true) {
+			driver.findElement(subscribeNewsletter).click();
+		}
+		else if(offer = true) {
+			driver.findElement(subscribeOffer).click();
+		}
 	}
 	
 	public void inputShippingAddress(String address, String cityName, String stateName, String postalCode, String countryName, String mobileNum, String aliasAddress) {
